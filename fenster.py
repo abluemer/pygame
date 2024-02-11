@@ -10,11 +10,14 @@ class GameWindow:
     def __init__(self, width, height):
         self.width = width
         self.height = height
+        pygame.init()  # Initialisiere Pygame
         self.window = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Mein Pygame-Fenster")
         self.clock = pygame.time.Clock()
+        self.background_image = pygame.image.load('background.png').convert()
         self.player = Player(400, 400, 50, 50, self.width, self.height)
         self.enemies = []
+
 
     def spawn_enemy(self):
         x = random.randint(0, self.width - 50)
@@ -50,7 +53,7 @@ class GameWindow:
                     self.enemies.remove(enemy)
                     self.spawn_enemy()
 
-            self.window.fill((255, 255, 255))  # Hintergrundfarbe
+            self.window.blit(self.background_image, (0, 0))            # Hintergrundfarbe
             self.player.draw(self.window)
 
             for enemy in self.enemies:

@@ -22,7 +22,8 @@ class Player:
             self.y += self.speed
 
     def draw(self, window):
-        pygame.draw.rect(window, (0, 0, 255), (self.x, self.y, self.width, self.height))
-
+       # pygame.draw.rect(window, (0, 0, 250), (self.x, self.y, self.width, self.height))
+        player_img = pygame.image.load("player.png").convert()
+        player_img = pygame.transform.scale(player_img, (30, 50))
     def check_collision(self, other):
         return pygame.Rect(self.x, self.y, self.width, self.height).colliderect(other.x, other.y, other.width, other.height)
