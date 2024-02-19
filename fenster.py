@@ -20,9 +20,14 @@ class GameWindow:
 
 
     def spawn_enemy(self):
-        x = random.randint(0, self.width - 50)
-        y = random.randint(0, self.height - 50)
-        enemy = Enemy(x, y, 50, 50, self.width, self.height, self.player, self.enemies)
+        x = self.player.x
+        y = self.player.y
+        while self.player.x-100 < x < self.player.x+100 or self.player.y-100 < x < self.player.y+100: # solange im radius ist suche neu
+            print(y)
+            x = random.randint(0, self.width - 50)
+            y = random.randint(0, self.height - 50)
+
+        enemy = Enemy(x, y, 50, 50, self.player, self.enemies)
         self.enemies.append(enemy)
 
     def run_game(self):

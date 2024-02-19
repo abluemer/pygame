@@ -4,13 +4,13 @@ import pygame
 
 
 class Enemy:
-    def __init__(self, x, y, width, height, screen_width, screen_height, player, all_enemies):
+    def __init__(self, x, y, width, height, player, all_enemies):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-        self.screen_width = screen_width
-        self.screen_height = screen_height
+      #  self.screen_width = screen_width
+      #   self.screen_height = screen_height
         self.speed = 2
         self.player = player
         self.all_enemies = all_enemies
