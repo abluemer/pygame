@@ -11,6 +11,8 @@ class Player:
         self.screen_height = screen_height
         self.speed = 5
 
+        self.player_img = pygame.image.load("player.png")  # Lade das Bild
+        self.player_img = pygame.transform.scale(self.player_img, (80, 80))
 
     def move(self, keys):
         if keys[pygame.K_LEFT] and self.x > 0:
@@ -23,8 +25,11 @@ class Player:
             self.y += self.speed
 
     def draw(self, window):
-        pygame.image.load("player.png").convert()
-        screen.blit(player_img, player_rect)
+        window.blit(self.player_img, (self.x, self.y))
+        # Zeichne das Bild auf das Fenster an der Position (x, y)
+
+
+
 
         #rect(window, (0, 0, 255), (self.x, self.y, self.width, self.height))
         #player_img = pygame.image.load("player.png").convert()
